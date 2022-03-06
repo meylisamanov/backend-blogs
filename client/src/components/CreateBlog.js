@@ -34,7 +34,6 @@ export default function CreateBlog({setData}) {
 
 
   return (
-    
     <Box sx={{ flexGrow: 1, padding: 10 }}>
       <Snackbar open={openWarn} autoHideDuration={2000} onClose={() => setOpenWarn(false)} anchorOrigin={{ vertical: 'top', horizontal:'center' }}>
         <Alert severity="warning" sx={{ width: '100%' }}>
