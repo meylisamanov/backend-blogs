@@ -6,7 +6,7 @@ export default function Home(){
   const [data, setData] = useState();
   
   const getData = () => {
-    axios.get('http://localhost:5000/api')
+    axios.get(`${window.location.origin}/api`)
     .then(res => {
       if(res.data){
         setData(res.data);

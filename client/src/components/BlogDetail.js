@@ -21,7 +21,7 @@ export default function BlogDetail(){
 
     // Get all datas of one blog
     const getData = () => {
-        axios.get('http://localhost:5000/api/' + id)
+        axios.get(`${window.location.origin}/api` + id)
             .then(res => {
                 if(res.data){                    
                     changedData(res.data.comment);
@@ -42,7 +42,7 @@ export default function BlogDetail(){
         onSubmit: async (values) => {
             const res = await axios({
                 method: 'post',
-                url: 'http://localhost:5000/api/' + id + '/create/comment',
+                url: `${window.location.origin}/api/` + id + '/create/comment',
                 data: {
                     comment: values.comment
                 }

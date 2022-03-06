@@ -19,7 +19,7 @@ export default function CreateBlog({setData}) {
     onSubmit: async (values) => {
         const res = await axios({
             method: 'post',
-            url: 'http://localhost:5000/api/create/blog',
+            url: `${window.location.origin}/api/create/blog`,
             data: {
                 title: values.title,
                 content: values.content
@@ -34,6 +34,7 @@ export default function CreateBlog({setData}) {
 
 
   return (
+    
     <Box sx={{ flexGrow: 1, padding: 10 }}>
       <Snackbar open={openWarn} autoHideDuration={2000} onClose={() => setOpenWarn(false)} anchorOrigin={{ vertical: 'top', horizontal:'center' }}>
         <Alert severity="warning" sx={{ width: '100%' }}>
