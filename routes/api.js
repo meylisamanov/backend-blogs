@@ -18,8 +18,8 @@ router.get('/:id', (req, res, next) => {
 
 // This will save the comment in Blog model and return its all comments
 router.post('/:id/create/comment', async (req, res, next) => {
-    var blog = await Blog.findOne({_id: req.params.id})
-    blog.comment.push({body: req.body.comment, date: new Date()});
+    var blog = await Blog.findOne({ _id: req.params.id })
+    blog.comment.push({ body: req.body.comment, date: new Date() });
     await blog.save();
     return res.json(blog);
 });
@@ -28,8 +28,8 @@ router.post('/:id/create/comment', async (req, res, next) => {
 router.post('/create/blog',  async (req, res, next) => {
     const data = req.body;
     var blog = await Blog.findOne({title: data.title}).exec();
-    if(blog) return res.json({error: "Blog already exists!"});
-    blog = await Blog.create({title: data.title, content: "this is \nmy superawesome \nmultiline content"});
+    if(blog) return res.json({ error: "Blog already exists!" });
+    blog = await Blog.create({ title: data.title, content: data.content });
     return res.json(blog);
 });
 

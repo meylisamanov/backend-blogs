@@ -7,8 +7,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 export default function CreateBlog({setData}) {
-  const [open, setOpen] = React.useState(false);
-  const [open2, setOpen2] = React.useState(false);
+  const [openWarn, setOpenWarn] = React.useState(false);
+  const [openSuccess, setOpenSuccess] = React.useState(false);
   const navigate = useNavigate();
 
   const formik = useFormik({
@@ -26,18 +26,9 @@ export default function CreateBlog({setData}) {
             }
         });
         if(res.data.error){
-            setOpen(true);
-            setTimeout(() => {
-              setOpen(false);
-            }, 2000);
             return;
         }
-        setOpen2(true);
-        await setTimeout(() => {
-          setOpen2(false);
-          navigate('/');
-        }, 1000);
-        
+        navigate('/');
     },
   });
 
@@ -45,12 +36,12 @@ export default function CreateBlog({setData}) {
   return (
     
     <Box sx={{ flexGrow: 1, padding: 10 }}>
-      <Snackbar open={open} autoHideDuration={6000} anchorOrigin={{ vertical: 'top', horizontal:'center' }}>
+      <Snackbar open={openWarn} autoHideDuration={2000} onClose={() => setOpenWarn(false)} anchorOrigin={{ vertical: 'top', horizontal:'center' }}>
         <Alert severity="warning" sx={{ width: '100%' }}>
           Blog already exists!
         </Alert>
       </Snackbar>
-      <Snackbar open={open2} autoHideDuration={6000} anchorOrigin={{ vertical: 'top', horizontal:'center' }}>
+      <Snackbar open={openSuccess} autoHideDuration={1000} onClose={() => setOpenSuccess(false)} anchorOrigin={{ vertical: 'top', horizontal:'center' }}>
         <Alert severity="success" sx={{ width: '100%' }}>
           Success Posting!
         </Alert>
