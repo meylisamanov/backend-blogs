@@ -12,7 +12,7 @@ const app = express();
 // app.use(cors())
 
 // const port = process.env.PORT || 5000;
-const port = 5000;
+const port = 433;
 
 //connect to the database
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
@@ -40,8 +40,9 @@ app.use((err, req, res, next) => {
   next();
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+app.get("/", (req, res) => {
+  console.log("Response success!!!!");
+  // res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 app.listen(port, () => {
