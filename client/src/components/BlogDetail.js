@@ -21,7 +21,7 @@ export default function BlogDetail(){
 
     // Get all datas of one blog
     const getData = () => {
-        axios.get(`${window.location.origin}/api` + id)
+        axios.get(`${window.location.origin}/api/` + id)
             .then(res => {
                 if(res.data){                    
                     changedData(res.data.comment);
