@@ -16,7 +16,6 @@ This server app receives HTTP requests and handles datas connected to MongoDB.
 
 
 ```terminal
-$ cd server   // go to server folder
 $ npm i       // npm install packages
 $ npm start // run it locally
 
