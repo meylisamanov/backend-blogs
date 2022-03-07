@@ -21,7 +21,7 @@ export default function BlogDetail(){
 
     // Get all datas of one blog
     const getData = () => {
-        axios.get(`${process.env.API_URL}:${process.env.port}/api/` + id)
+        axios.get(`https://sunblogtest.herokuapp.com:5000/api/` + id)
             .then(res => {
                 if(res.data){                    
                     changedData(res.data.comment);

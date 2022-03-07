@@ -7,7 +7,7 @@ export default function Home(){
   
   const getData = () => {
     // axios.get(`${window.location.origin}/api`)
-    axios.get(`${process.env.API_URL}:${process.env.port}/api`)
+    axios.get(`https://sunblogtest.herokuapp.com:5000/api`)
     .then(res => {
       if(res.data){
         setData(res.data);
