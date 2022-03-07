@@ -17,9 +17,10 @@ export default function CreateBlog({setData}) {
       content: '',
     },
     onSubmit: async (values) => {
+      //${process.env.API_URL}:${process.env.port}/api
         const res = await axios({
             method: 'post',
-            url: `${window.location.origin}/api/create/blog`,
+            url: `${process.env.API_URL}:${process.env.port}/api/create/blog`,
             data: {
                 title: values.title,
                 content: values.content
