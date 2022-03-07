@@ -14,7 +14,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 //connect to the database
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
+mongoose.connect("mongodb+srv://admin:admin@cluster0.kibio.mongodb.net", { useNewUrlParser: true })
   .then(() => console.log(`Database connected successfully`))
   .catch(err => console.log(err));
 
