@@ -11,6 +11,7 @@ router.get('/', (req, res, next) => {
 
 // This will return all datas of one fixed blog
 router.get('/:id', (req, res, next) => {
+    // return res.json({ "message" : "request" });
     Blog.findOne({_id: req.params.id})
         .then(data => res.json(data))
         .catch(next)
